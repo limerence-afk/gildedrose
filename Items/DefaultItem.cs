@@ -4,30 +4,20 @@ namespace csharp.Items
 {
     public class DefaultItem : IItem
     {
+        protected int maxQuality = 50;
+        protected int minQuality = 0;
         protected readonly Item Item;
         public DefaultItem(Item item)
         {
             this.Item = item;
-            MinOrMaxQuality();
+            Item.Quality = Item.CheckQualityAndSetInRange(maxQuality,minQuality);
         }
         
-        protected int MaxQuality = 50;
-
         public void UpdateItem()
         {
-            UpdateItemSellIn();
-            UpdateItemQuality();
-            MinOrMaxQuality();
-        }
-
-        private void MinOrMaxQuality()
-        {
-            Item.Quality = Math.Min(MaxQuality, Math.Max(0, Item.Quality));
-        }
-
-        protected virtual void UpdateItemSellIn()
-        {
             Item.SellIn -= 1;
+            UpdateItemQuality();
+            Item.Quality = Item.CheckQualityAndSetInRange(maxQuality,minQuality);
         }
         
         protected virtual void UpdateItemQuality()
@@ -37,12 +27,7 @@ namespace csharp.Items
 
         protected virtual int CalcAdjustRate()
         {
-            if (Item.SellIn < 0)
-            {
-                return 2;
-            }
-
-            return 1;
+            return Item.SellIn < 0 ? 2 : 1;
         }
     }
 }

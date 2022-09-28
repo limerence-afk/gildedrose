@@ -7,8 +7,8 @@ namespace csharp
     public class GildedRose
     {
         private readonly List<IItem> _items;
-        
 
+        
         public GildedRose(IEnumerable<Item> items)
         {
             var factory = new ItemFactory();

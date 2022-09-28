@@ -5,7 +5,7 @@
         public LegendaryItem(Item item) : base(item)
         {
             Item.Quality = 80;
-            this.MaxQuality = 80;
+            this.maxQuality = 80;
         }
 
         protected override void UpdateItemQuality()
@@ -13,10 +13,10 @@
             Item.Quality = 80;
         }
 
-        protected override void UpdateItemSellIn()
-        {
-            
-        }
+        // protected override void UpdateItemSellIn()
+        // {
+        //     
+        // }
 
         protected override int CalcAdjustRate()
         {
