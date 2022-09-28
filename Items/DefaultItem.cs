@@ -22,10 +22,10 @@ namespace csharp.Items
         
         protected virtual void UpdateItemQuality()
         {
-            Item.Quality -= CalcAdjustRate();
+            Item.Quality -= CalculateAdjustRate();
         }
 
-        protected virtual int CalcAdjustRate()
+        protected virtual int CalculateAdjustRate()
         {
             return Item.SellIn < 0 ? 2 : 1;
         }

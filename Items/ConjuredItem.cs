@@ -2,9 +2,9 @@
 {
     public class ConjuredItem : DefaultItem
     {
-        protected override int CalcAdjustRate()
+        protected override int CalculateAdjustRate()
         {
-            return base.CalcAdjustRate()*2;
+            return base.CalculateAdjustRate()*2;
         }
 
         public ConjuredItem(Item item) : base(item)

@@ -17,7 +17,7 @@
             base.UpdateItemQuality();
         }
 
-        protected override int CalcAdjustRate()
+        protected override int CalculateAdjustRate()
         {
             return Item.SellIn switch {
                 >= 10 => 1,

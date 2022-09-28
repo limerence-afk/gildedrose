@@ -4,7 +4,7 @@
     {
         protected override void UpdateItemQuality()
         {
-            Item.Quality += CalcAdjustRate(); 
+            Item.Quality += CalculateAdjustRate(); 
         }
 
         public AgedBrieItem(Item item) : base(item)
