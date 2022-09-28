@@ -6,20 +6,19 @@ namespace csharp
 {
     public class GildedRose
     {
-        private readonly List<IItem> _items;
+        private readonly IEnumerable<Item> _items;
+        private readonly ItemFactory _itemFactory = new ItemFactory();
 
-        
         public GildedRose(IEnumerable<Item> items)
         {
-            var factory = new ItemFactory();
-            _items = items.Select(item => factory.CreateItem(item)).ToList();
+            _items = items;
         }
 
         public void UpdateQuality()
         {
             foreach (var item in _items)
             {
-                item.UpdateItem();
+                _itemFactory.CreateItem(item).UpdateItem();
             }
         }
     }

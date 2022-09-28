@@ -19,22 +19,12 @@
 
         protected override int CalcAdjustRate()
         {
-            if (Item.SellIn >= 10)
-            {
-                return 1;
-            }
-
-            if (Item.SellIn >= 5)
-            {
-                return 2;
-            }
-
-            if (Item.SellIn >= 0)
-            {
-                return 3;
-            }
-
-            return 0;
+            return Item.SellIn switch {
+                >= 10 => 1,
+                >= 5 => 2,
+                >= 0 => 3,
+                _ => 0
+            };
         }
 
     }

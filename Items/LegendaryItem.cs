@@ -1,26 +1,17 @@
 ﻿namespace csharp.Items
 {
-    public class LegendaryItem : DefaultItem
+    public class LegendaryItem : IItem
     {
-        public LegendaryItem(Item item) : base(item)
+        protected readonly Item _item;
+        public LegendaryItem(Item item)
         {
-            Item.Quality = 80;
-            this.maxQuality = 80;
+            _item = item;
+            UpdateItem();
         }
 
-        protected override void UpdateItemQuality()
+        public void UpdateItem()
         {
-            Item.Quality = 80;
-        }
-
-        // protected override void UpdateItemSellIn()
-        // {
-        //     
-        // }
-
-        protected override int CalcAdjustRate()
-        {
-            return 0;
+            _item.Quality = 80;
         }
     }
 }

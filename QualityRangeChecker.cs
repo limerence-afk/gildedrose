@@ -4,9 +4,9 @@ namespace csharp
 {
     public static class QualityRangeChecker
     {
-        public static int CheckQualityAndSetInRange(this Item item, int maxQuality, int minQuality)
+        public static int SetQualityInRange(this Item item, int maxQuality, int minQuality)
         {
-            return Math.Min(maxQuality, Math.Max(0, item.Quality));
+            return Math.Min(maxQuality, Math.Max(minQuality, item.Quality));
         }  
     }
 }

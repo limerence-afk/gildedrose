@@ -4,20 +4,20 @@ namespace csharp.Items
 {
     public class DefaultItem : IItem
     {
-        protected int maxQuality = 50;
-        protected int minQuality = 0;
+        private readonly int _maxQuality = 50;
+        private readonly int _minQuality = 0;
         protected readonly Item Item;
         public DefaultItem(Item item)
         {
             this.Item = item;
-            Item.Quality = Item.CheckQualityAndSetInRange(maxQuality,minQuality);
+            Item.Quality = Item.SetQualityInRange(_maxQuality,_minQuality);
         }
         
         public void UpdateItem()
         {
             Item.SellIn -= 1;
             UpdateItemQuality();
-            Item.Quality = Item.CheckQualityAndSetInRange(maxQuality,minQuality);
+            Item.Quality = Item.SetQualityInRange(_maxQuality,_minQuality);
         }
         
         protected virtual void UpdateItemQuality()
